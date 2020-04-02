@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>SpringMVCProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 拦截一切请求给springmvc处理 -->
+  <servlet>
+  	<servlet-name>springDispatcherServlet</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:springmvc.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup><!-- 自动加载，优先级为1，最高 -->
+  </servlet>    
+  <servlet-mapping>
+  	<servlet-name>springDispatcherServlet</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 增加HiddenHttpMethodFilter过滤器，是为了给普通浏览器增加put|delete请求方式 -->
+  <filter>
+  	<filter-name>HiddenHttpMethodFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>HiddenHttpMethodFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
