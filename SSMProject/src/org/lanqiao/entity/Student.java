@@ -1,5 +1,5 @@
 package org.lanqiao.entity;
-//修改过了ma
+//修改过了ma开始了
 public class Student {
 	//学生信息
 	private int id;
