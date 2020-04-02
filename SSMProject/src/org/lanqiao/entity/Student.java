@@ -1,7 +1,7 @@
 package org.lanqiao.entity;
-//ĞŞ¸Ä¹ıÁËma¿ªÊ¼ÁË
+//ä¿®æ”¹è¿‡äº†,HAHA
 public class Student {
-	//Ñ§ÉúĞÅÏ¢
+	//å­¦ç”Ÿä¿¡æ¯
 	private int id;
 	private String name;
 	private int age;
@@ -9,8 +9,8 @@ public class Student {
 	private String homeAddress;
 	private String schoolAddress;
 	private String classid;
-	//Ñ§ÉúÖ¤ĞÅÏ¢
-//	private StudentCard card;//ÒªÁªÏµÁ½¸öÀà£¬ÆğÇÅÁº×÷ÓÃ£¬Ïàµ±ÓÚÊı¾İ±íÀïµÄÍâ¼ü
+	//å­¦ç”Ÿè¯ä¿¡æ¯
+//	private StudentCard card;//è¦è”ç³»ä¸¤ä¸ªç±»ï¼Œèµ·æ¡¥æ¢ä½œç”¨ï¼Œç›¸å½“äºæ•°æ®è¡¨é‡Œçš„å¤–é”®
 	
 	public Student() {
 		super();
@@ -90,7 +90,7 @@ public class Student {
 	}
 
 	@Override
-	public String toString() {//×¢Òâ£ºÒªÊÇ²éÒ»¸ö°à¼¶ÓĞ¶àÉÙÈË£¬Õâ¸öÑ§ÉúµÄcard¶ÔÏóÃ»´´½¨»á±¨¿ÕÖ¸ÕëÒì³£
+	public String toString() {//æ³¨æ„ï¼šè¦æ˜¯æŸ¥ä¸€ä¸ªç­çº§æœ‰å¤šå°‘äººï¼Œè¿™ä¸ªå­¦ç”Ÿçš„cardå¯¹è±¡æ²¡åˆ›å»ºä¼šæŠ¥ç©ºæŒ‡é’ˆå¼‚å¸¸
 		/*return id+"-"+name+"-"+age+"-"+stuSex+"-"+homeAddress+"-"+
 	schoolAddress+"-"+card.getCardId()+"-"+card.getCardInfo()+"-"+classid;*/
 		
