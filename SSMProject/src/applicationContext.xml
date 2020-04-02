@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- 加载db.properties -->
+	<bean id="config" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<array>
+				<value>classpath:db.properties</value>
+			</array>
+		</property>
+	</bean>
+	
+	<!-- 配置数据库信息，代替了mybatis的配置文件conf.xml文件 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}" />
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+        <property name="maxActive" value="${maxActive}" />
+        <property name="maxIdle" value="${maxIdle}" />
+	</bean>
+	
+	<!-- 在SpringIoc容器中 创建MyBatis的核心类 SqlSesionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 加载mybatis配置文件conf.xml -->
+		<!-- <property name="configLocation" value="classpath:conf.xml"></property> -->
+		
+		<!-- 加载数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 加载mapper.xml路径 -->
+		<property name="mapperLocations" value="classpath:org/lanqiao/mapper/*.xml"></property> 
+		
+		<property name="typeAliasesPackage" value="org.lanqiao.entity"></property> 
+	</bean>
+	
+	
+	<!-- 第三种方式生成mapper对象(批量产生多个mapper)批量产生Mapper对在SpringIOC中的 id值 默认就是  接口名 (接口名=id值)-->
+	<bean id="mappers" class="org.mybatis.spring.mapper.MapperScannerConfigurer ">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<!--指定批量产生 哪个包中的mapper对象-->
+		<property name="basePackage" value="org.lanqiao.mapper"></property>
+	</bean>
+	
+	 <bean id="studentService" class="org.lanqiao.service.impl.StudentServiceImpl">
+		<property name="studentMapper" ref="studentMapper" ></property>
+	</bean> 
+	
+	<!--  <bean id="studentController" class="org.lanqiao.controller.StudentController">
+		<property name="ss" ref="studentService"></property>
+	</bean>  -->
+</beans>
