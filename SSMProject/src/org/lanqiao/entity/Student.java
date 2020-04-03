@@ -1,5 +1,5 @@
 package org.lanqiao.entity;
-//修改过了,冲突1111
+//修改过了,冲突1111想
 public class Student {
 	//学生信息
 	private int id;
