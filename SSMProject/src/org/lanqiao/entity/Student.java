@@ -1,9 +1,5 @@
 package org.lanqiao.entity;
-<<<<<<< HEAD
-//修改过了,冲突22222+15
-=======
-//修改过了,冲突1111想
->>>>>>> branch 'master' of https://github.com/Jeremy-hxj/eclipseProject.git
+//又改了
 public class Student {
 	//学生信息
 	private int id;
